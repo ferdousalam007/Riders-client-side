@@ -59,6 +59,7 @@ const Orderpage = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input className="mb-3 form-control"  {...register("name")} value={user.displayName} />
                         <input className="mb-3 form-control" {...register("email")} value={user.email} />
+                        <input className="mb-3 form-control" type="number" {...register("phone")} placeholder="Enter Your phone number" />
                         <input className="mb-3 form-control" type="text" {...register("address")} placeholder="Enter Your address" />
                         <textarea className="mb-3 form-control"  {...register("description")} placeholder="Description" />
                         <input className='py-2 px-4 bg-primary text-white' type="submit" value="Place Order" />

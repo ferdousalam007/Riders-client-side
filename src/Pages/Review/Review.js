@@ -7,8 +7,8 @@ import useAuth from '../../hooks/useAuth';
 
 const Review = () => {
     const { user } = useAuth();
-    const { register, handleSubmit, watch, errors,reset } = useForm();
-console.log(user)
+    const { register, handleSubmit, watch, errors, reset } = useForm();
+    console.log(user)
 
     const onSubmit = (data) => {
 
@@ -19,7 +19,7 @@ console.log(user)
                     alert('data insert successfully');
                     reset();
                 }
-            }) 
+            })
         console.log(data);
     };
 
@@ -55,6 +55,8 @@ console.log(user)
                         className="form-control"
                         name="rating"
                         type="number"
+                        min='0'
+                        max='5'
                         placeholder="Rating Number"
                         {...register("rating", { required: true })}
                     />

@@ -39,12 +39,12 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <PrivateRoute exact path="/addProducts">
+            {/* <PrivateRoute exact path="/addProducts">
               <AddProucts></AddProucts>
-            </PrivateRoute>
-            <PrivateRoute exact path="/products">
+            </PrivateRoute> */}
+            <Route exact path="/products">
               <Products></Products>
-            </PrivateRoute>
+            </Route>
             <PrivateRoute exact path="/purchase/:_id">
               <Orderpage></Orderpage>
             </PrivateRoute>

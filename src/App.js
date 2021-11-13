@@ -37,9 +37,6 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            {/* <PrivateRoute exact path="/addProducts">
-              <AddProucts></AddProucts>
-            </PrivateRoute> */}
             <Route exact path="/products">
               <Products></Products>
             </Route>

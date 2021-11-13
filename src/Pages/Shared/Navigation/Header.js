@@ -24,12 +24,7 @@ const Header = () => {
                                     <li className="nav-item">
                                         <Link to="/Dashboard" className="nav-link active">Dashboard</Link>
                                     </li>
-                                    {/* <li className="nav-item">
-                                        <Link to="/myOrders" className="nav-link active">myOrders</Link>
-                                    </li> */}
-                                    {/* <li className="nav-item">
-                                        <Link to="/add-a-new-service" className="nav-link active">Add A New Service</Link>
-                                    </li> */}
+                                    
                                     <li className="nav-item">
                                         <span className="nav-link active fw-bold">{user.displayName}</span>
                                     </li>

@@ -9,6 +9,8 @@ import { NavLink, useHistory } from 'react-router-dom';
 // import useAuth from './../../../hooks/useAuth';
 import useAuth from '../../../hooks/useAuth';
 import { Form } from 'react-bootstrap';
+import Header from '../../Shared/Navigation/Header';
+import Footer from '../../Shared/Footer/Footer';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
@@ -32,6 +34,7 @@ const Register = () => {
     }
     return (
         <>
+        <Header></Header>
             <Container className="py-5 w-50">
                 <Row>
                     <h1>Please Register</h1>
@@ -88,59 +91,9 @@ const Register = () => {
                     {user?.email && <Alert variant="success">User Created successfully!</Alert>}
                     {authError && <Alert variant="danger">{authError}</Alert>}
 
-
-
-                    {/* <Grid item sx={{ mt: 8 }} xs={12} md={6}>
-                        <Typography variant="body1" gutterBottom>Register</Typography>
-                        {!isLoading && <form onSubmit={handleLoginSubmit}> */}
-                    {/* <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Name"
-                            name="name"
-                            onBlur={handleOnBlur}
-                            variant="standard" /> */}
-                    {/* <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Email"
-                            name="email"
-                            type="email"
-                            onBlur={handleOnBlur}
-                            variant="standard" /> */}
-                    {/* <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Password"
-                            type="password"
-                            name="password"
-                            onBlur={handleOnBlur}
-                            variant="standard" /> */}
-                    {/* <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="ReType Your Password"
-                            type="password"
-                            name="password2"
-                            onBlur={handleOnBlur}
-                            variant="standard" /> */}
-
-                    {/* <Button type="submit" variant="success">Register</Button> */}
-                    {/* <NavLink
-                            style={{ textDecoration: 'none' }}
-                            to="/login">
-                            <Button variant="text">Already Registered? Please Login</Button>
-                        </NavLink> */}
-                    {/* </form>}
-                        {isLoading && <Spinner animation="border" />}
-                        {user?.email && <Alert variant="success">User Created successfully!</Alert>}
-                        {authError && <Alert variant="danger">{authError}</Alert>}
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <img style={{ width: '100%' }} src={login} alt="" />
-                    </Grid> */}
                 </Row>
             </Container>
+            <Footer></Footer>
         </>
     );
 };

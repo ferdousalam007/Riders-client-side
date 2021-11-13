@@ -50,7 +50,7 @@ const Dashboard = () => {
               </ul>
               <ul>
                 <li>
-                <Link to={`${url}`}><Button className='btn-bg w-75'>Pay Bill</Button></Link>
+                  <Link to={`${url}`}><Button className='btn-bg w-75'>Pay Bill</Button></Link>
                 </li>
                 <li>
                   <Link to={`${url}/review`}><Button className='btn-bg w-75'>Reviiew</Button></Link>
@@ -58,22 +58,25 @@ const Dashboard = () => {
                 <li>
                   <Link to={`${url}/MyOrders`}><Button className='btn-bg w-75'>My Orders</Button></Link>
                 </li>
-                
 
 
 
-                <li>
-                  <Link to={`${url}/ManageAllOrders`}><Button className='btn-bg w-75'>Manage All Orders</Button></Link>
-                </li>
-                <li>
-                  <Link to={`${url}/makeAdmin`}><Button className='btn-bg w-75'>Make an Admin</Button></Link>
-                </li>
-                <li>
-                  <Link to={`${url}/addProducts`}><Button className='btn-bg w-75'>Add a Products</Button></Link>
-                </li>
-                <li>
-                  <Link to={`${url}/manageProducts`}><Button className='btn-bg w-75'>Manage Products</Button></Link>
-                </li>
+
+                {admin && <>
+                  <li>
+                    <Link to={`${url}/ManageAllOrders`}><Button className='btn-bg w-75'>Manage All Orders</Button></Link>
+                  </li>
+                  <li>
+                    <Link to={`${url}/makeAdmin`}><Button className='btn-bg w-75'>Make an Admin</Button></Link>
+                  </li>
+                  <li>
+                    <Link to={`${url}/addProducts`}><Button className='btn-bg w-75'>Add a Products</Button></Link>
+                  </li>
+                  <li>
+                    <Link to={`${url}/manageProducts`}><Button className='btn-bg w-75'>Manage Products</Button></Link>
+                  </li>
+                </>
+                }
 
 
                 <li>
@@ -81,40 +84,40 @@ const Dashboard = () => {
                 </li>
               </ul>
             </nav>
-            
+
           </div >
 
-        
-        <Switch>
-              <Route exact path={path}>
-                <PayBill></PayBill>
-              </Route>
-              <Route path={`${path}/review`}>
-                <Review></Review>
-              </Route>
-              <Route path={`${path}/MyOrders`}>
-                <MyOrders></MyOrders>
-              </Route>
-              <Route path={`${path}/Logout`}>
-                <Logout></Logout>
-              </Route>
+
+          <Switch>
+            <Route exact path={path}>
+              <PayBill></PayBill>
+            </Route>
+            <Route path={`${path}/review`}>
+              <Review></Review>
+            </Route>
+            <Route path={`${path}/MyOrders`}>
+              <MyOrders></MyOrders>
+            </Route>
+            <Route path={`${path}/Logout`}>
+              <Logout></Logout>
+            </Route>
 
 
-              <Route path={`${path}/ManageAllOrders`}>
-                <MangeAllOrders></MangeAllOrders>
-              </Route>
-              <Route path={`${path}/makeAdmin`}>
-                <MakeAdmin></MakeAdmin>
-              </Route>
-              <Route path={`${path}/addProducts`}>
-                <AddProucts></AddProucts>
-              </Route>
-              <Route path={`${path}/manageProducts`}>
-                <ManageProducts></ManageProducts>
-              </Route>
-            </Switch></Col>
+            <AdminRoute path={`${path}/ManageAllOrders`}>
+              <MangeAllOrders></MangeAllOrders>
+            </AdminRoute>
+            <AdminRoute path={`${path}/makeAdmin`}>
+              <MakeAdmin></MakeAdmin>
+            </AdminRoute>
+            <AdminRoute path={`${path}/addProducts`}>
+              <AddProucts></AddProucts>
+            </AdminRoute>
+            <AdminRoute path={`${path}/manageProducts`}>
+              <ManageProducts></ManageProducts>
+            </AdminRoute>
+          </Switch></Col>
       </Row>
-<Footer></Footer>
+      <Footer></Footer>
     </div>
   );
 };

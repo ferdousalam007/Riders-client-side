@@ -9,7 +9,6 @@ const Reviews = () => {
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);
-    console.log(reviews)
 
 
     return (
@@ -27,10 +26,13 @@ const Reviews = () => {
                                     {' '}
                                 </p>
                                 <footer className="blockquote-footer">
-                                    <p className='text-warning'>Rating:{review?.rating}</p> <cite title="Source Title">{review?.name}</cite>
+                                    <p className='text-warning'>Rating:{review?.rating}</p>
+                                         <cite title="Source Title">{review?.name}</cite>
                                 </footer>
                             </blockquote>
+                            
                         </Card.Body>
+                      
                     </Col>
                     )}
                 </Row>

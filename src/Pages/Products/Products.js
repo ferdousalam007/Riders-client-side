@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Container, Row, Button, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Navigation/Header';
 
 const Products = () => {
@@ -21,7 +22,7 @@ const Products = () => {
 
                     <Row xs={1} md={3} className="g-4">
                         {
-                            products.map(product => <Col key={product._id}>
+                            products?.map(product => <Col key={product?._id}>
                                 <Card>
                                     <Card.Img variant="top" alt="product image" src={product?.imgUrl} />
                                     <Card.Body>
@@ -29,6 +30,7 @@ const Products = () => {
                                         <Card.Text>
                                             {product?.ProductsDescription.slice(0, 120)}...
                                         </Card.Text>
+                                        <h5 className='text-success fs-2'>${product?.price}</h5>
                                         <NavLink
                                             to={`/purchase/${product?._id}`}
                                         ><Button variant="primary"><i className="fas fa-shopping-cart me-2"></i>ORDER NOW</Button>
@@ -40,6 +42,7 @@ const Products = () => {
                     </Row>
                 </Container>
             </div>
+            <Footer></Footer>
         </>
     );
 };

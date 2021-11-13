@@ -19,6 +19,7 @@ import MyOrders from '../MyOrders/MyOrders';
 import Logout from '../Logout/Logout';
 import MangeAllOrders from '../ManageAllOrders/ManageAllOrders';
 import ManageProducts from '../ManageProducts/ManageProducts';
+import Footer from '../Shared/Footer/Footer';
 
 const Dashboard = () => {
   const [sidebar, setSidebar] = useState(true);
@@ -113,7 +114,7 @@ const Dashboard = () => {
               </Route>
             </Switch></Col>
       </Row>
-
+<Footer></Footer>
     </div>
   );
 };

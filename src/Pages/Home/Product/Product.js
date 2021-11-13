@@ -22,7 +22,7 @@ const Product = () => {
 
                     <Row xs={1} md={3} className="g-4">
                         {
-                            products.slice(0, 6).map(product => <Col key={product._id}>
+                            products?.slice(0, 6).map(product => <Col key={product?._id}>
                                 <Card>
                                     <Card.Img variant="top" alt="product image" src={product?.imgUrl} />
                                     <Card.Body>
@@ -30,6 +30,7 @@ const Product = () => {
                                         <Card.Text>
                                             {product?.ProductsDescription.slice(0, 120)}...
                                         </Card.Text>
+                                        <h5 className='text-success fs-2'>${product?.price}</h5>
                                         <NavLink
                                             to={`/purchase/${product?._id}`}
                                         ><Button variant="primary"><i className="fas fa-shopping-cart me-2"></i>ORDER NOW</Button>

@@ -18,16 +18,16 @@ const Reviews = () => {
 
             <Container>
                 <Row>
-                    {reviews.map(review => <Col xs={6} md={3} key={review._id}>
-                        <Card.Body>
+                    {reviews?.map(review => <Col xs={6} md={3} key={review?._id}>
+                        <Card.Body className='ccard'>
                             <blockquote className="blockquote mb-0">
                                 <p>
                                     {' '}
-                                    {review.comments}
+                                    {review?.comments}
                                     {' '}
                                 </p>
                                 <footer className="blockquote-footer">
-                                    <p className='text-warning'>Rating:{review.rating}</p> <cite title="Source Title">{review.name}</cite>
+                                    <p className='text-warning'>Rating:{review?.rating}</p> <cite title="Source Title">{review?.name}</cite>
                                 </footer>
                             </blockquote>
                         </Card.Body>

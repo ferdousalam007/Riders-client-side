@@ -15,7 +15,7 @@ const MangeAllOrders = () => {
         fetch("https://limitless-river-82429.herokuapp.com/allOrders")
             .then((res) => res.json())
             .then((data) => setOrders(data));
-    }, [orderId, control]);
+    }, [orders, orderId, control]);
 
     // const status = "apporved";
     const handleOrderId = (id) => {
@@ -32,6 +32,8 @@ const MangeAllOrders = () => {
         })
             .then((res) => res.json())
             .then((result) => console.log(result));
+
+        alert('product shiped');
     };
 
 
@@ -66,16 +68,17 @@ const MangeAllOrders = () => {
                         <th>#</th>
                         <th>Service Title</th>
                         <th>Event description</th>
+                        <th>Update Status</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 {orders?.map((pd, index) => (
-                    <tbody key={pd._id}>
+                    <tbody key={pd?._id}>
                         <tr>
                             <td>{index}</td>
-                            <td>{pd.name}</td>
-                            <td>{pd.description}</td>
+                            <td>{pd?.name}</td>
+                            <td>{pd?.description}</td>
                             <td>
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <select
@@ -90,7 +93,12 @@ const MangeAllOrders = () => {
                             </td>
                             <td>
                                 <Button
-                                    onClick={() => handleDelete(pd._id)}
+
+                                    className='bg-danger-btn' variant="primary">{pd?.status}</Button>
+                            </td>
+                            <td>
+                                <Button
+                                    onClick={() => handleDelete(pd?._id)}
                                     className='bg-danger-btn' variant="primary">Delete</Button>
                             </td>
 

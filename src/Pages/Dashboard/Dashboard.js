@@ -14,6 +14,11 @@ import Review from '../Review/Review';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import AddProucts from '../AddProucts/AddProucts';
 import AdminRoute from '../Login/AdminRoute/AdminRoute';
+import PayBill from '../PayBill/PayBill';
+import MyOrders from '../MyOrders/MyOrders';
+import Logout from '../Logout/Logout';
+import MangeAllOrders from '../ManageAllOrders/ManageAllOrders';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 const Dashboard = () => {
   const [sidebar, setSidebar] = useState(true);
@@ -24,7 +29,7 @@ const Dashboard = () => {
   return (
     <div>
       <Row>
-        <Col xs={2}>
+        <Col >
           <div>
             <div className='navbar'>
               <Link to='#' className='menu-bars'>
@@ -44,26 +49,67 @@ const Dashboard = () => {
               </ul>
               <ul>
                 <li>
-                  <Link to={`${url}/makeAdmin`}><Button>Make Admin</Button></Link>
+                <Link to={`${url}`}><Button className='btn-bg w-75'>Pay Bill</Button></Link>
                 </li>
                 <li>
-                  <Link to={`${url}/addProducts`}><Button>Add Products</Button></Link>
+                  <Link to={`${url}/review`}><Button className='btn-bg w-75'>Reviiew</Button></Link>
+                </li>
+                <li>
+                  <Link to={`${url}/MyOrders`}><Button className='btn-bg w-75'>My Orders</Button></Link>
+                </li>
+                
+
+
+
+                <li>
+                  <Link to={`${url}/ManageAllOrders`}><Button className='btn-bg w-75'>Manage All Orders</Button></Link>
+                </li>
+                <li>
+                  <Link to={`${url}/makeAdmin`}><Button className='btn-bg w-75'>Make an Admin</Button></Link>
+                </li>
+                <li>
+                  <Link to={`${url}/addProducts`}><Button className='btn-bg w-75'>Add a Products</Button></Link>
+                </li>
+                <li>
+                  <Link to={`${url}/manageProducts`}><Button className='btn-bg w-75'>Manage Products</Button></Link>
+                </li>
+
+
+                <li>
+                  <Link to={`${url}/Logout`}><Button className='btn-bg w-75'>Logout</Button></Link>
                 </li>
               </ul>
             </nav>
             
           </div >
 
-        </Col>
-        <Col><Switch>
+        
+        <Switch>
               <Route exact path={path}>
+                <PayBill></PayBill>
+              </Route>
+              <Route path={`${path}/review`}>
                 <Review></Review>
+              </Route>
+              <Route path={`${path}/MyOrders`}>
+                <MyOrders></MyOrders>
+              </Route>
+              <Route path={`${path}/Logout`}>
+                <Logout></Logout>
+              </Route>
+
+
+              <Route path={`${path}/ManageAllOrders`}>
+                <MangeAllOrders></MangeAllOrders>
               </Route>
               <Route path={`${path}/makeAdmin`}>
                 <MakeAdmin></MakeAdmin>
               </Route>
               <Route path={`${path}/addProducts`}>
                 <AddProucts></AddProucts>
+              </Route>
+              <Route path={`${path}/manageProducts`}>
+                <ManageProducts></ManageProducts>
               </Route>
             </Switch></Col>
       </Row>

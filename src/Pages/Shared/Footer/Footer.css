@@ -1,0 +1,13 @@
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .5rem 1rem;
+    color: #bbbbbb !important;
+    text-decoration: none;
+    background-color: #fff0;
+    border: 1px solid rgb(217 217 217 / 13%);
+}
+.footer-bg{
+    background-color: #252628;
+    color: #bbbbbb;
+}

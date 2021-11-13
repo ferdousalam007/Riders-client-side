@@ -5,14 +5,14 @@ import useAuth from '../../../hooks/useAuth';
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
-    const { token,authError } = useAuth();
+    const { token, authError } = useAuth();
 
     const handleOnBlur = e => {
         setEmail(e.target.value);
     }
     const handleAdminSubmit = e => {
         const user = { email };
-        fetch('http://localhost:5000/user/admin', {
+        fetch('https://limitless-river-82429.herokuapp.com/user/admin', {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${token}`,
@@ -26,9 +26,10 @@ const MakeAdmin = () => {
                     console.log(data);
                     setSuccess(true);
                 }
-                else {
+                else if (data.modifiedCount === 0) {
                     console.log(data);
-                    setSuccess(false);
+                    alert(' this user not in database adimn input failed');
+
                 }
             })
 
@@ -43,16 +44,16 @@ const MakeAdmin = () => {
         <div className='container w-50 py-5 '>
             <h1>make admin</h1>
             <form onSubmit={handleAdminSubmit}>
-            <Form.Group
-                            className="mb-3 text-start" controlId="formBasicEmail">
-                            <Form.Label>Enter Your Email</Form.Label>
-                            <Form.Control
-                                placeholder="Enter email"
-                                name="email"
-                                type="email"
-                                onBlur={handleOnBlur}
-                            />
-                        </Form.Group>
+                <Form.Group
+                    className="mb-3 text-start" controlId="formBasicEmail">
+                    <Form.Label>Enter Your Email</Form.Label>
+                    <Form.Control
+                        placeholder="Enter email"
+                        name="email"
+                        type="email"
+                        onBlur={handleOnBlur}
+                    />
+                </Form.Group>
                 {/* <TextField
                     sx={{ width: '50%' }}
                     label="Email"
@@ -62,6 +63,7 @@ const MakeAdmin = () => {
                 <Button type="submit" variant="primary">Make Admin</Button>
             </form>
             {success && <Alert variant="success">Made Admin successfully!</Alert>}
+
         </div>
     );
 };

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Container, Row, Button, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import Header from '../Shared/Navigation/Header';
+import './Products.css'
 
-const Products = () => {
+const Product = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
 
@@ -12,16 +12,17 @@ const Products = () => {
             .then(data => setProducts(data))
 
     }, [])
+
     return (
-        <>
-            <Header></Header>
-            <div className='bg-light py-5'>
+        <div>
+
+            <div className='bg-light'>
                 <Container className='py-5'>
-                    <h1 className='text-center mb-5'>ALL PRODUCTS</h1>
+                    <h1 className='text-center mb-5'>PRODUCTS</h1>
 
                     <Row xs={1} md={3} className="g-4">
                         {
-                            products.map(product => <Col key={product._id}>
+                            products.slice(0, 6).map(product => <Col key={product._id}>
                                 <Card>
                                     <Card.Img variant="top" alt="product image" src={product?.imgUrl} />
                                     <Card.Body>
@@ -40,8 +41,8 @@ const Products = () => {
                     </Row>
                 </Container>
             </div>
-        </>
+        </div>
     );
 };
 
-export default Products;
+export default Product;

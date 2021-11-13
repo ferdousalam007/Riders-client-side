@@ -18,15 +18,13 @@ import Products from './Pages/Products/Products';
 import Orderpage from './Pages/Orderpage/Orderpage';
 import MyOrders from './Pages/MyOrders/MyOrders';
 import Review from './Pages/Review/Review';
+import NotFound from './Pages/NotFound/NotFound';
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Router>
           <Switch>
-            {/* <PrivateRoute path="/appointment">
-              <Appointment />
-            </PrivateRoute> */}
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
             </PrivateRoute>
@@ -56,6 +54,9 @@ function App() {
             </PrivateRoute>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
         </Router>

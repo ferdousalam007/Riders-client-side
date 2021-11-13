@@ -12,7 +12,7 @@ const Review = () => {
 
     const onSubmit = (data) => {
 
-        axios.post('http://localhost:5000/addSReview', data)
+        axios.post('https://limitless-river-82429.herokuapp.com/addSReview', data)
             .then(res => {
                 console.log(res);
                 if (res.data.insertedId) {

@@ -10,7 +10,7 @@ const MyOrders = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrder/${user?.email}`)
+        fetch(`https://limitless-river-82429.herokuapp.com/myOrder/${user?.email}`)
             .then((res) => res.json())
             .then((data) => setmyOrder(data));
     }, [user.email, control]);
@@ -18,7 +18,7 @@ const MyOrders = () => {
 
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/deleteMyOrder/${id}`, {
+        fetch(`https://limitless-river-82429.herokuapp.com/deleteMyOrder/${id}`, {
             method: "DELETE",
             headers: { "content-type": "application/json" },
         })
@@ -54,10 +54,10 @@ const MyOrders = () => {
                             <tbody key={order._id}>
                                 <tr>
                                     <td>{index}</td>
-                                    <td>{order.name}</td>
-                                    <td>{order.email}</td>
-                                    <td>{order.description}</td>
-                                    <Button className='bg-button' variant="primary">pending</Button>
+                                    <td>{order?.name}</td>
+                                    <td>{order?.email}</td>
+                                    <td>{order?.description}</td>
+                                    <Button className='bg-button' variant="primary">{order?.status}</Button>
                                     <Button
                                         onClick={() => handleDelete(order._id)}
                                         className='bg-danger-btn'
